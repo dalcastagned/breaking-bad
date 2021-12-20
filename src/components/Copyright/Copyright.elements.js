@@ -10,4 +10,5 @@ export const Footer = styled.div`
 
 export const FooterText = styled.p`
     color: #fff; 
+    font-size: 14px;
 `
