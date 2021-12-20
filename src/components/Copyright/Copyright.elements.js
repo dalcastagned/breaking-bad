@@ -6,6 +6,7 @@ export const Footer = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+    border-top: 1px solid #fff;
 `
 
 export const FooterText = styled.p`
