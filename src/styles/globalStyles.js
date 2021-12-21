@@ -53,6 +53,7 @@ export const ContainerImagesRandomDeath = styled.div`
     align-items: center;
     height: 415px;
     width: 100%;
+    margin-bottom: 20px;
 `
 
 export default GlobalStyle

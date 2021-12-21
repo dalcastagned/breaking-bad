@@ -68,7 +68,28 @@ export const ContainerDeath = styled.div`
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    margin-bottom: 20px;
+    margin-bottom: 20px;    
+    animation: fadein 2s; /* Padrão */
+    -webkit-animation: fadein 2s; /* Webkit */
+    -moz-animation: fadein 2s; /* Firefox */
+    -ms-animation: fadein 2s; /* IE */
+
+    @keyframes fadein {
+        from { opacity: 0.3; }
+        to { opacity: 1; } /* Padrão */
+    }
+    @-moz-keyframes fadein {
+        from { opacity: 0.3; }
+        to { opacity: 1; } /* Firefox */
+    }
+    @-webkit-keyframes fadein {
+        from { opacity: 0.3; 
+        to { opacity: 1; } /* Webkit */
+    }
+    @-ms-keyframes fadein {
+        from { opacity: 0.3; }
+        to { opacity: 1; } /* IE */
+    }​
 `
 
 export const ContainerWhoDied = styled.div`
