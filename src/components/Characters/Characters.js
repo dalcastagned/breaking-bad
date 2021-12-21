@@ -27,7 +27,6 @@ const Characters = () => {
             .then((data) => {
                 setCharacter(data);
                 setLoaded(true);
-                console.log(data)
             })
             .catch(function (err) {
                 setError(true);
