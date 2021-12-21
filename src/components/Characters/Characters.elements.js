@@ -53,4 +53,5 @@ export const CharacterInfo = styled.p`
 `
 export const CharacterInfoBold = styled.span`
     font-weight: bold;
+    padding-right: 5px;
 `
