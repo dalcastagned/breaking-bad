@@ -64,23 +64,31 @@ const Home = () => {
                 <TextRandomDeath>Click here to find out about a random death!</TextRandomDeath>
                 <ButtonRandomDeath onClick={getNewRandomDeath}>Death!</ButtonRandomDeath>
             </ContainerRandomDeath>
-            <ContainerImagesRandomDeath style={loaded ? { display: 'none' } : {}}>
-                <LoadingIMG src='https://i.ibb.co/CmhYx2h/loading-light.gif' alt='loading...' />
-            </ContainerImagesRandomDeath>
-            <ContainerDeath style={loaded ? {} : { display: 'none' }}>
-                <ContainerWhoDied>
-                    <Name>{randomDeath.death}</Name>
-                    <PictureWhoDied src={randomDeath.img} alt='Who Died' onLoad={imageLoaded} />
-                </ContainerWhoDied>
-                <ContainerDeathInfo>
-                    <InfoTitle>Cause</InfoTitle>
-                    <InforDescription>{randomDeath.cause}</InforDescription>
-                    <InfoTitle>Responsible</InfoTitle>
-                    <InforDescription>{randomDeath.responsible}</InforDescription>
-                    <InfoTitle>Last Words</InfoTitle>
-                    <InforDescription>{randomDeath.last_words}</InforDescription>
-                </ContainerDeathInfo>
-            </ContainerDeath>
+            {error ?
+                <ContainerImagesRandomDeath>
+                    <ErrorImg src='https://i.ibb.co/GPBYtqK/error.png' alt='Error!' />
+                </ContainerImagesRandomDeath>
+                :
+                <>
+                    <ContainerImagesRandomDeath style={loaded ? { display: 'none' } : {}}>
+                        <LoadingIMG src='https://i.ibb.co/CmhYx2h/loading-light.gif' alt='loading...' />
+                    </ContainerImagesRandomDeath>
+                    <ContainerDeath style={loaded ? {} : { display: 'none' }}>
+                        <ContainerWhoDied>
+                            <Name>{randomDeath.death}</Name>
+                            <PictureWhoDied src={randomDeath.img} alt='Who Died' onLoad={imageLoaded} />
+                        </ContainerWhoDied>
+                        <ContainerDeathInfo>
+                            <InfoTitle>Cause</InfoTitle>
+                            <InforDescription>{randomDeath.cause}</InforDescription>
+                            <InfoTitle>Responsible</InfoTitle>
+                            <InforDescription>{randomDeath.responsible}</InforDescription>
+                            <InfoTitle>Last Words</InfoTitle>
+                            <InforDescription>{randomDeath.last_words}</InforDescription>
+                        </ContainerDeathInfo>
+                    </ContainerDeath>
+                </>
+            }
         </ContainerHome>
     )
 }
