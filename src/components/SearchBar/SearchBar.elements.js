@@ -12,7 +12,7 @@ export const StyledSearchBar = styled.input`
   text-align: center;
   outline:0;
   width: 400px;
-  margin-top: 20px;
+  margin-top: 40px;
 
     @media screen and (max-width: 420px){
         width: 300px;

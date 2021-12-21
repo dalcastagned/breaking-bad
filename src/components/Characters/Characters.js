@@ -6,6 +6,14 @@ import {
     ErrorImg,
     LoadingIMG,
 } from '../../styles/globalStyles'
+import {
+    ContainerCharacters,
+    ContainerCard,
+    CharacterImage,
+    CharacterInfoContainer,
+    CharacterInfo,
+    CharacterInfoBold
+} from './Characters.elements'
 
 const Characters = () => {
 
@@ -49,20 +57,20 @@ const Characters = () => {
                     listSize={filteredCharacter.length}
                     placeholder={"Search Character"}
                 />
-                <div>
+                <ContainerCharacters>
                     {filteredCharacter.map((character, index) => (
-                        <div key={index} style={{ color: '#fff' }}>
-                            <img src={character.img} alt={`${character.name} image`}/>
-                            <div>
-                                <p><span>Name: </span>{character.name}</p>
-                                <p><span>Nickname: </span>{character.nickname}</p>
-                                <p><span>Birthday: </span>{character.birthday}</p>
-                                <p><span>Status: </span>{character.status}</p>
-                                <p><span>Portrayed: </span>{character.portrayed}</p>
-                            </div>
-                        </div>
+                        <ContainerCard key={index}>
+                            <CharacterImage background={character.img} />
+                            <CharacterInfoContainer>
+                                <CharacterInfo><CharacterInfoBold>Name: </CharacterInfoBold>{character.name}</CharacterInfo>
+                                <CharacterInfo><CharacterInfoBold>Nickname: </CharacterInfoBold>{character.nickname}</CharacterInfo>
+                                <CharacterInfo><CharacterInfoBold>Birthday: </CharacterInfoBold>{character.birthday}</CharacterInfo>
+                                <CharacterInfo><CharacterInfoBold>Status: </CharacterInfoBold>{character.status}</CharacterInfo>
+                                <CharacterInfo><CharacterInfoBold>Portrayed: </CharacterInfoBold>{character.portrayed}</CharacterInfo>
+                            </CharacterInfoContainer>
+                        </ContainerCard>
                     ))}
-                </div>
+                </ContainerCharacters>
             </>
         )
     }
