@@ -39,10 +39,10 @@ const Navbar = () => {
                         <NavLinks to='/'>Home</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks to='/games'>Characters</NavLinks>
+                        <NavLinks to='/characters'>Characters</NavLinks>
                     </NavItem>
                     <NavItem>
-                        <NavLinks to='/news'>Episodes</NavLinks>
+                        <NavLinks to='/episodes'>Episodes</NavLinks>
                     </NavItem>
                 </NavMenu>
             </NavbarContainer>

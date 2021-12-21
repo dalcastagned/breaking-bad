@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import {
     ContainerHome,
     ContainerDescription,
@@ -15,8 +15,47 @@ import {
     InforDescription,
     Name
 } from './Home.elements';
+import {
+    ContainerImagesRandomDeath,
+    ErrorImg,
+    LoadingIMG,
+} from '../../styles/globalStyles'
+import { getRandomDeath } from '../../services/Api'
 
 const Home = () => {
+
+    const [randomDeath, setRandomDeath] = useState([]);
+    const [loaded, setLoaded] = useState(false)
+    const [error, setError] = useState(false);
+
+    useEffect(() => {
+        getRandomDeath("random-death")
+            .then((data) => {
+                setRandomDeath(data);
+                console.log(data)
+                setLoaded(true);
+            })
+            .catch(function (err) {
+                setError(true);
+                setLoaded(true);
+            });
+    }, []);
+
+    const getNewRandomDeath = () => {
+        setLoaded(false);  
+        setError(false);
+        getRandomDeath("random-death")
+            .then((data) => {
+                setRandomDeath(data);
+                console.log(data)
+                setLoaded(true);
+            })
+            .catch(function (err) {
+                setError(true);
+                setLoaded(true);
+            });
+    }
+
     return (
         <ContainerHome>
             <ContainerDescription>
@@ -25,22 +64,33 @@ const Home = () => {
             </ContainerDescription>
             <ContainerRandomDeath>
                 <TextRandomDeath>Click here to find out about a random death!</TextRandomDeath>
-                <ButtonRandomDeath>Death!</ButtonRandomDeath>
+                <ButtonRandomDeath onClick={getNewRandomDeath}>Death!</ButtonRandomDeath>
             </ContainerRandomDeath>
-            <ContainerDeath>
-                <ContainerWhoDied>
-                    <Name>Name</Name>
-                    <PictureWhoDied src='https://i.ibb.co/mXLKjHM/Walter-2008.png' alt='Who Died' />
-                </ContainerWhoDied>
-                <ContainerDeathInfo>
-                    <InfoTitle>Cause</InfoTitle>
-                    <InforDescription>Lorem Ipsum</InforDescription>
-                    <InfoTitle>Responsible</InfoTitle>
-                    <InforDescription>Lorem Ipsum</InforDescription>
-                    <InfoTitle>Last Words</InfoTitle>
-                    <InforDescription>Lorem Ipsum</InforDescription>
-                </ContainerDeathInfo>
-            </ContainerDeath>
+            {error === true ?
+                <ContainerImagesRandomDeath>
+                    <ErrorImg src='https://i.ibb.co/GPBYtqK/error.png' alt='Error!' />
+                </ContainerImagesRandomDeath>
+                :
+                loaded === false ?
+                    <ContainerImagesRandomDeath>
+                        <LoadingIMG src='https://i.ibb.co/CmhYx2h/loading-light.gif' alt='loading...' />
+                    </ContainerImagesRandomDeath>
+                    :
+                    <ContainerDeath>
+                        <ContainerWhoDied>
+                            <Name>{randomDeath.death}</Name>
+                            <PictureWhoDied src={randomDeath.img} alt='Who Died' />
+                        </ContainerWhoDied>
+                        <ContainerDeathInfo>
+                            <InfoTitle>Cause</InfoTitle>
+                            <InforDescription>{randomDeath.cause}</InforDescription>
+                            <InfoTitle>Responsible</InfoTitle>
+                            <InforDescription>{randomDeath.responsible}</InforDescription>
+                            <InfoTitle>Last Words</InfoTitle>
+                            <InforDescription>{randomDeath.last_words}</InforDescription>
+                        </ContainerDeathInfo>
+                    </ContainerDeath>
+            }
         </ContainerHome>
     )
 }

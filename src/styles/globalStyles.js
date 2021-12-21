@@ -47,4 +47,12 @@ export const ContainerImages = styled.div`
     width: 100%;
 `
 
+export const ContainerImagesRandomDeath = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 415px;
+    width: 100%;
+`
+
 export default GlobalStyle

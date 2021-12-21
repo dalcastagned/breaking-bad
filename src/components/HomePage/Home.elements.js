@@ -74,6 +74,15 @@ export const ContainerDeath = styled.div`
 export const ContainerWhoDied = styled.div`
     text-align: center;
     padding: 10px 20px 0px 20px;
+    width: 300px;   
+    height: 415px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+    @media screen and (max-width: 680px){
+        width: 100%;
+    }
 `
 
 export const Name = styled.h2`
@@ -91,7 +100,12 @@ export const PictureWhoDied = styled.img`
 `
 
 export const ContainerDeathInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 0px 10px 0px 20px;
+    width: 300px;
+    height: 415px;
 
     @media screen and (max-width: 680px){
         width: 100%;
