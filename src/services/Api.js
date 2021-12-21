@@ -12,3 +12,9 @@ export const getRandomDeath = (url) => {
         return response.data
     })
 }
+
+export const getCharacters = (url) => {
+  return instance.get(url).then(response => {
+      return response.data
+  })
+}
