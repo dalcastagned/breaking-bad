@@ -83,6 +83,7 @@ export const ContainerWhoDied = styled.div`
     
     @media screen and (max-width: 680px){
         width: 100%;
+        height: auto;
     }
 `
 
@@ -109,7 +110,9 @@ export const ContainerDeathInfo = styled.div`
     height: 415px;
 
     @media screen and (max-width: 680px){
-        width: 100%;
+        width: 100%;   
+        height: auto;
+        margin-bottom: 20px;
     }
 `
 
