@@ -41,9 +41,6 @@ const Navbar = () => {
                     <NavItem>
                         <NavLinks to='/characters'>Characters</NavLinks>
                     </NavItem>
-                    <NavItem>
-                        <NavLinks to='/episodes'>Episodes</NavLinks>
-                    </NavItem>
                 </NavMenu>
             </NavbarContainer>
         </Nav>
